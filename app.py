@@ -13,9 +13,8 @@ debug = DebugToolbarExtension(app)
 
 connect_db(app)
 
-app.route('/phones')
-def list_phones():
-    """List all phone numbers."""
+@app.route('/')
+def home_page():
     emps = Employee.query.all()
     return render_template('phones.html', emps=emps)
 
